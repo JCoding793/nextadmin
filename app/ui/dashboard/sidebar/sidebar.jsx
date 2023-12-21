@@ -94,9 +94,13 @@ const Sidebar = () => {
         
       <div className={styles.container}>
         <div className={styles.user}>
-            <Image src={userImage} alt="not found"  width="50" height="50"/>
+            <Image src={userImage} alt="not found"  width="50" height="50" className={styles.user_image} />
+            <div className={styles.user_detials}>
+                <span className={styles.user_name}>John Joe</span>
+                <span className={styles.user_title}>Administrator</span>
+            </div>
         </div>
-        <ul>
+        <ul className={styles.list}>
             {menuItem.map((item , index)=>{
                 return(
                     <li key={index}>{item.title}
@@ -107,8 +111,9 @@ const Sidebar = () => {
                     </li>
                 )
             })}
-        Sidebar 
         </ul>
+        <button className={styles.logout}>
+            <MdLogout/>Logout</button>
       </div>
     )
   }

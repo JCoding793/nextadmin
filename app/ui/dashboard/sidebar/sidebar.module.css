@@ -13,3 +13,36 @@
     border-radius: 50%;
     object-fit: cover;
 }
+.user_detials{
+  display: flex;
+  flex-direction: column;
+}
+.user_name{
+    font-weight: 500;
+}
+.list{
+    list-style: none;
+
+}
+.cat{
+    color: var(--textSoft);
+    font-weight: bold;
+    font-size: 13px;
+    margin: 10px;
+}
+.logout{
+   padding:20px;
+   margin:5px 0px;
+   display: flex;
+   align-items: center;
+   gap:10px;
+   cursor: pointer;
+   border-radius: 10px;
+   background: none;
+   border: none;
+   width: 100%; 
+   color:#fff;
+}
+.logout:hover{
+    background-color: #2e374a;
+}

@@ -18,10 +18,54 @@ const Transactions = () =>{
                 <tbody>
                     <tr>
                         <td>
-                            <Image src={userImage} alt="not found.." width={40} height={40} className='styles.user_image' />
-                            John Doe
+                            <div className={styles.user}><Image src={userImage} alt="not found.." width={40} height={40} className={styles.user_image} />John Doe</div>
+                            
                         </td>
-                        <td> <span className={`styles.status styles.pending`}>Pending</span></td>
+                        <td> <span className={`${styles.status} ${styles.pending}`}>Pending</span></td>
+                        <td>
+                            14.02.2024
+                        </td>
+                        <td>$3.200</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className={styles.user}><Image src={userImage} alt="not found.." width={40} height={40} className={styles.user_image} />John Doe</div>
+                            
+                        </td>
+                        <td> <span className={`${styles.status} ${styles.done}`}>Done</span></td>
+                        <td>
+                            14.02.2024
+                        </td>
+                        <td>$3.200</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className={styles.user}><Image src={userImage} alt="not found.." width={40} height={40} className={styles.user_image} />John Doe</div>
+                            
+                        </td>
+                        <td> <span className={`${styles.status} ${styles.cancelled}`}>Cancelled</span></td>
+                        <td>
+                            14.02.2024
+                        </td>
+                        <td>$3.200</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className={styles.user}><Image src={userImage} alt="not found.." width={40} height={40} className={styles.user_image} />John Doe</div>
+                            
+                        </td>
+                        <td> <span className={`${styles.status} ${styles.pending}`}>Pending</span></td>
+                        <td>
+                            14.02.2024
+                        </td>
+                        <td>$3.200</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div className={styles.user}><Image src={userImage} alt="not found.." width={40} height={40} className={styles.user_image} />John Doe</div>
+                            
+                        </td>
+                        <td> <span className={`${styles.status} ${styles.done}`}>Done</span></td>
                         <td>
                             14.02.2024
                         </td>

@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { stringifyError } from 'next/dist/shared/lib/utils';
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -10,6 +9,9 @@ const userSchema = new mongoose.Schema({
   password:{
     type: String,
     require: true,
+  },
+  emailId:{
+    type: String,
   },
   img:{
     type: String,
@@ -29,7 +31,7 @@ const userSchema = new mongoose.Schema({
     type: String
   },
   
-}, {timestamps: true});
+},{timestamps: true});
 
 const productSchema = new mongoose.Schema({
     title: {

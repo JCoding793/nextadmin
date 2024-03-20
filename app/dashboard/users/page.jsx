@@ -3,11 +3,15 @@ import Search from "@/app/ui/dashboard/search/search";
 import Image from "next/image"
 import Link from 'next/link';
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
-import { fetchUser } from "@/app/lib/data";
-const Userpage = async() => {
-  const users = await fetchUser();
-  console.log(users);
+import { fetchUsers } from "@/app/lib/data";
+import { deleteUser } from "@/app/lib/action";
+const Userpage = async({searchParams}) => {
+  const q = searchParams?.q || "";
+  const page = searchParams?.page || 1;
+  console.log(q);
+  const { count , users }= await fetchUsers(q , page);
   return (
+
     <div className={styles.container}>
       <div className={styles.top}>
         <Search placeholder={"Search for user"}/>
@@ -28,28 +32,32 @@ const Userpage = async() => {
             </tr>
           </thead>
           <tbody>
-            <tr>
+            {users.map(user =>(  
+            <tr key={user.id}>
               <td>
-                <div className={styles.user}><Image src="" alt="" width={40} height={40} className={styles.userImage}/>Jone Doe</div>
+                <div className={styles.user}><Image src={user.img || "/noavatar.png"} alt="" width={40} height={40} className={styles.userImage}/>{user.userName}</div>
               </td>
-              <td>john@gmail.com</td>
-              <td>12.4.2023</td>
-              <td>Admin</td>
-              <td>active</td>
+              <td>{user.emailId}</td>
+              <td>{user.createdAt?.toString().slice(4, 16)}</td>
+              <td>{user.isAdmin ? "Admin" : "User"}</td>
+              <td>{user.isActive ? "active" : "passive"}</td>
               <td>
                 <div className={styles.buttons}>
-                   <Link href={"/"}>
+                   <Link href={`/dashboard/users/${user.id}`}>
                   <button className={`${styles.button} ${styles.veiw}`}>View</button>
                 </Link>
+                <form action={deleteUser}>
+                <input type="hidden" name="id" value={user.id} />
                 <button className={`${styles.button} ${styles.delete}`}>Delete</button>
+                </form>
                 </div>
                
 
               </td>
-            </tr>
+            </tr>  ))}
           </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count}/>
     </div>
   )
 }
